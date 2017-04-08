@@ -1,0 +1,13 @@
+{
+  "name": "MobileGameDevServer",
+  "version": "0.0.0",
+  "description": "MobileGameDevServer",
+  "main": "mgd-server.js",
+  "author": { "name": "User", "email": "" },
+  "dependencies": {
+    "aws-sdk": "^2.1.18",
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3",
+    "cors": "^2.5.3"
+  }
+}

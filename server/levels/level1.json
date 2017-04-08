@@ -1,0 +1,31 @@
+{
+  "EnemySpawns": [
+    {
+      "SpawnPosition" : {"x": "1800", "y": "255"},
+      "GatePosition": {"x": "1800", "y": "255"},
+      "Behaviour": { "Active": "0.0" },
+      "Spawns": "5",
+      "Delay": "3500",
+      "ID":"grass_spawn"
+    },
+
+    {
+      "SpawnPosition" : {"x": "1200", "y": "455"},
+      "GatePosition": {"x": "1200", "y": "455"},
+      "Behaviour": { "Active": "1.0" },
+      "Spawns": "5",
+      "Delay": "3000",
+      "ID":"grass_spawn"
+    }
+  ],
+
+  "Platforms": [
+    { "x": "0", "y": "1032", "w": "1920", "h": "48", "ID" : "grass_block"},
+    { "x": "300", "y": "800", "w": "500", "h": "48", "ID" : "grass_block"},
+    { "x": "900", "y": "600", "w": "500", "h": "48", "ID" : "grass_block"},
+    { "x": "1520", "y": "400", "w": "400", "h": "48", "ID" : "grass_block"}
+  ],
+
+  "Background": "grass_background",
+  "Next": "LV2"
+}
