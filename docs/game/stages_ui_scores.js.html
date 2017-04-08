@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: stages/ui/scores.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: stages/ui/scores.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿
+
+var MobileGame = MobileGame || {};
+
+/**
+ * The constructor for the High-Scores class
+ * 
+ * @constructor
+ * @author William Taylor &amp; Jonathan Livingstone 
+ * @version 1.0.0
+ * @license Apache-2.0
+ */
+MobileGame.Highscores = function(){};
+
+MobileGame.Highscores.prototype = {
+    /**
+     * This is the URL to download the High Scores
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @public 
+     */
+    scoreBoardUrl: "http://54.77.243.196:3005/score/GetScores/",
+
+    /**
+     * Holds the scoreboard
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @public 
+     */
+    scoreBoard: null,
+    
+    /**
+     * Stores the Phaser framework and creates the scoreboard objec
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Load the High Scores screen
+     * this.highScores.preload();
+     */
+    preload: function () {
+        this.game = Application.phaser;
+        this.scoreBoard = new ScoreBoard(this.scoreBoardUrl, this.game);
+    },
+
+    /**
+     * The main creation function for the High Scores,
+     * which creates all the buttons and text
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Create the High Scores page
+     * this.highScores.create();
+     */
+    create: function () {
+        this.background = this.game.add.sprite(0, 0, 'city_background');
+
+        this.buttons = new ButtonSet(Application.phaser);
+        this.buttons.pushButton("BACK", 30, 30, 'back', this.goback, this);
+
+        this.title = this.game.add.text(0, 50, "Highscores",
+            { font: "100px Comic Sans MS", fill: "#FDFDFD", align: "center" }
+        );
+
+        this.title.x = this.game.world.centerX - this.title.width / 2;
+        this.scoreBoard.createNewsBoard("news");
+        this.scoreBoard.populateNewsBoard(5);
+
+        this.sprite_right = this.game.add.sprite(250, 160, 'character');
+        this.sprite_right.animations.add('walk', [0, 1, 2, 3, 4, 5]);
+        this.sprite_right.animations.play('walk', 10, true);
+
+        this.sprite_left = this.game.add.sprite(1030, 160, 'character');
+        this.sprite_left.animations.add('walk', [0, 1, 2, 3, 4, 5]);
+        this.sprite_left.animations.play('walk', 10, true);
+        this.sprite_left.scale.x = -1;
+    },
+
+    /**
+     * Make the player go back to the Main Menu from the High Score Screen
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Go back to the Main Menu from the High Score screen
+     * this.highScores.goback();
+     */
+    goback: function () {
+        this.game.state.start('Menu');
+    },
+
+    /**
+     * The function will render additional onscreen information
+     * if the game is in debug mode.
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Render the High Scores page
+     * this.highScore.render();
+     */
+     render: function () {
+        if (Application.debug) {
+            this.game.time.advancedTiming = true;
+            this.game.debug.text(this.game.time.fps || '--', 2, 14, "#000000");
+        }
+     }
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bullet.html">Bullet</a></li><li><a href="ButtonSet.html">ButtonSet</a></li><li><a href="Enemy.html">Enemy</a></li><li><a href="EnemyActiveBehaviour.html">EnemyActiveBehaviour</a></li><li><a href="EnemyBoss.html">EnemyBoss</a></li><li><a href="EnemyEmptyBehaviour.html">EnemyEmptyBehaviour</a></li><li><a href="EnemyIdleBehaviour.html">EnemyIdleBehaviour</a></li><li><a href="EnemySpawn.html">EnemySpawn</a></li><li><a href="GameException.html">GameException</a></li><li><a href="HTTP_GetRequest.html">HTTP_GetRequest</a></li><li><a href="HTTP_LocalRequest.html">HTTP_LocalRequest</a></li><li><a href="HTTP_PostRequest.html">HTTP_PostRequest</a></li><li><a href="Level.html">Level</a></li><li><a href="MobileGame.Boot.html">Boot</a></li><li><a href="MobileGame.Controls.html">Controls</a></li><li><a href="MobileGame.Credits.html">Credits</a></li><li><a href="MobileGame.GameOver.html">GameOver</a></li><li><a href="MobileGame.getLayout.html">getLayout</a></li><li><a href="MobileGame.Highscores.html">Highscores</a></li><li><a href="MobileGame.Level1.html">Level1</a></li><li><a href="MobileGame.Level3.html">Level3</a></li><li><a href="MobileGame.Level4.html">Level4</a></li><li><a href="MobileGame.MainMenu.html">MainMenu</a></li><li><a href="MobileGame.Preload.html">Preload</a></li><li><a href="NewsBoard.html">NewsBoard</a></li><li><a href="Player.html">Player</a></li><li><a href="ScoreBoard.html">ScoreBoard</a></li></ul><h3>Namespaces</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Browser.html">Browser</a></li><li><a href="MobileGame.html">MobileGame</a></li><li><a href="Music.html">Music</a></li></ul><h3>Global</h3><ul><li><a href="global.html#BULLET_TYPE">BULLET_TYPE</a></li><li><a href="global.html#ENEMY_TYPES">ENEMY_TYPES</a></li><li><a href="global.html#ERROR_SEVERITY">ERROR_SEVERITY</a></li><li><a href="global.html#LEVEL_LAYOUT_ID">LEVEL_LAYOUT_ID</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta3</a> on Mon Apr 20 2015 19:28:33 GMT+0100 (GMT Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

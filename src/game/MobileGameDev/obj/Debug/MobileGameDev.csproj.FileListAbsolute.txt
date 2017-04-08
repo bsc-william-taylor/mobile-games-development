@@ -1,0 +1,5 @@
+C:\Users\User\Desktop\Coursework\MobileGameDev\src\game\MobileGameDev\bin\Maze3D.dll.config
+C:\Users\User\Desktop\Coursework\MobileGameDev\src\game\MobileGameDev\bin\Maze3D.dll
+C:\Users\User\Desktop\Coursework\MobileGameDev\src\game\MobileGameDev\bin\Maze3D.pdb
+C:\Users\User\Desktop\Coursework\MobileGameDev\src\game\MobileGameDev\obj\Debug\Maze3D.dll
+C:\Users\User\Desktop\Coursework\MobileGameDev\src\game\MobileGameDev\obj\Debug\Maze3D.pdb
