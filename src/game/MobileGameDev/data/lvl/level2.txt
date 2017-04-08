@@ -1,0 +1,43 @@
+﻿{
+    "EnemySpawns": [
+        { 
+            "SpawnPosition" : {"x": "25", "y": "35"}, 
+            "GatePosition": {"x": "25", "y": "35"}, 
+			"Behaviour": { "Active": "0.5" },
+            "Spawns": "5",
+            "Delay": "3000",
+			"ID":"snow_spawn"
+        },
+
+		{ 
+            "SpawnPosition" : {"x": "1050", "y": "550"}, 
+            "GatePosition": {"x": "1050", "y": "550"}, 
+			"Behaviour": { "Active": "0.5" },
+            "Spawns": "10",
+            "Delay": "5000",
+			"ID":"snow_spawn"
+        },
+
+		{ 
+            "SpawnPosition" : {"x": "1175", "y": "100"}, 
+            "GatePosition": {"x": "1175", "y": "100"}, 
+			"Behaviour": { "Active": "0.5" },
+            "Spawns": "4",
+            "Delay": "3500",
+			"ID":"snow_spawn"
+        }
+    ],
+
+	"Platforms": [
+		{ "x": "0", "y": "690", "w": "1280", "h": "32", "ID" : "snow_block"},
+		{ "x": "300", "y": "550", "w": "650", "h": "32", "ID" : "snow_block"},
+		{ "x": "50", "y": "430", "w": "300", "h": "32", "ID" : "snow_block"},
+		{ "x": "900", "y": "430", "w": "300", "h": "32", "ID" : "snow_block"},
+		{ "x": "720", "y": "300", "w": "150", "h": "32", "ID" : "snow_block"},
+		{ "x": "0", "y": "175", "w": "550", "h": "32", "ID" : "snow_block"},
+		{ "x": "1100", "y": "250", "w": "200", "h": "32", "ID" : "snow_block"}
+	],
+
+	"Background": "snow_background",
+	"Next": "LV3"
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: stages/ui/credits.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: stages/ui/credits.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿
+
+var MobileGame = MobileGame || {};
+
+
+/**
+ * The contructor for the Credits page
+ * 
+ * @constructor
+ * @author William Taylor &amp; Jonathan Livingstone 
+ * @version 1.0.0
+ * @license Apache-2.0
+ * @example 
+ * // Create the credits ui state
+ * this.credits = new MobileGame.Credits();
+ */
+MobileGame.Credits = function () { }
+
+MobileGame.Credits.prototype = {
+    /**
+     * This is the preload function for the credits
+     * which stores the Phaser application
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Load the credits
+     * this.credits.preload();
+     */
+    preload: function () {
+        this.game = Application.phaser;
+    },
+
+    /**
+     * The create function for the credits.
+     * It Initializes the Sprite, Pictures, and some Global Data
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Create the credits
+     * this.credits.create();
+     */
+    create: function() {
+        this.background = this.game.add.sprite(0, 0, 'city_background');
+
+        this.buttons = new ButtonSet(Application.phaser);
+        this.buttons.pushButton("BACK", 30, 30, 'back', this.goback, this);
+
+        this.title = this.game.add.text(0, 50, "Credits",
+            { font: "150px Comic Sans MS", fill: "#FDFDFD", align: "center" }
+        );
+
+        this.title.x = this.game.world.centerX - this.title.width / 2;
+
+        this.footer = this.game.add.text(0, 600, '\"Made with JavaScript and Phaser 2.3 only\"',
+            { font: "40px Comic Sans MS", fill: "#FDFDFD", align: "center" }
+        );
+
+        this.footer.x = this.game.world.centerX - this.footer.width / 2;
+
+        this.jonathon = this.game.add.button(350, 275, 'jonathan', this.jonathonPress, this);
+        this.jonathon.height = 200;
+        this.jonathon.width = 200;
+
+        this.jonathonText = this.game.add.text(260, 500, "B00236297\n  Did the physics, levels design, and input",
+            { font: "20px Comic Sans MS", fill: "#FDFDFD", align: "center" }
+        );
+
+        this.william = this.game.add.button(780, 275, 'william', this.williamPress, this);
+        this.william.height = 200;
+        this.william.width = 200;
+
+        this.williamText = this.game.add.text(700, 500, "B00235610\n  Did the server, http code, and loading",
+            { font: "20px Comic Sans MS", fill: "#FDFDFD", align: "center" }
+        );
+    },
+    
+    /**
+     * Will open William Taylor's LinkedIn page when his picture is clicked on
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Open William Taylors LinkedIn Page
+     * this.credits.williamPress();
+     */
+    williamPress: function() {
+        window.open("https://uk.linkedin.com/pub/william-taylor/66/179/32b");
+    },
+
+    /**
+     * Will open Jonathan Livingstone's LinkedIn page when his picture is clicked
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Open Jonathan Livingstone's LinkedIn Page
+     * this.credits.jonathonPress();
+     */
+    jonathonPress: function () {
+        window.open("https://uk.linkedin.com/in/jlivingstone94");
+    },
+
+    /**
+     * Press this button to bo back to the menu from the credits
+     * 
+     * @author William Taylor &amp; Jonathan Livingstone 
+     * @version 1.0.0
+     * @license Apache-2.0
+     * @example 
+     * // Go back to the Main Menu state
+     * this.credits.goback();
+     */
+    goback: function () {
+        this.game.state.start('Menu');
+    },
+
+    /**
+    * Renders additional debug information on the screen if the game is in debug mode
+    * 
+    * @author William Taylor &amp; Jonathan Livingstone 
+    * @version 1.0.0
+    * @license Apache-2.0
+    * @example 
+    * // Render the Credits page onscreen
+    * this.credits.render();
+    */
+    render: function () {
+        if (Application.debug) {
+            this.game.time.advancedTiming = true;
+            this.game.debug.text(this.game.time.fps || '--', 2, 14, "#000000");
+        }
+    }
+};                                                     </code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bullet.html">Bullet</a></li><li><a href="ButtonSet.html">ButtonSet</a></li><li><a href="Enemy.html">Enemy</a></li><li><a href="EnemyActiveBehaviour.html">EnemyActiveBehaviour</a></li><li><a href="EnemyBoss.html">EnemyBoss</a></li><li><a href="EnemyEmptyBehaviour.html">EnemyEmptyBehaviour</a></li><li><a href="EnemyIdleBehaviour.html">EnemyIdleBehaviour</a></li><li><a href="EnemySpawn.html">EnemySpawn</a></li><li><a href="GameException.html">GameException</a></li><li><a href="HTTP_GetRequest.html">HTTP_GetRequest</a></li><li><a href="HTTP_LocalRequest.html">HTTP_LocalRequest</a></li><li><a href="HTTP_PostRequest.html">HTTP_PostRequest</a></li><li><a href="Level.html">Level</a></li><li><a href="MobileGame.Boot.html">Boot</a></li><li><a href="MobileGame.Controls.html">Controls</a></li><li><a href="MobileGame.Credits.html">Credits</a></li><li><a href="MobileGame.GameOver.html">GameOver</a></li><li><a href="MobileGame.getLayout.html">getLayout</a></li><li><a href="MobileGame.Highscores.html">Highscores</a></li><li><a href="MobileGame.Level1.html">Level1</a></li><li><a href="MobileGame.Level3.html">Level3</a></li><li><a href="MobileGame.Level4.html">Level4</a></li><li><a href="MobileGame.MainMenu.html">MainMenu</a></li><li><a href="MobileGame.Preload.html">Preload</a></li><li><a href="NewsBoard.html">NewsBoard</a></li><li><a href="Player.html">Player</a></li><li><a href="ScoreBoard.html">ScoreBoard</a></li></ul><h3>Namespaces</h3><ul><li><a href="Application.html">Application</a></li><li><a href="Browser.html">Browser</a></li><li><a href="MobileGame.html">MobileGame</a></li><li><a href="Music.html">Music</a></li></ul><h3>Global</h3><ul><li><a href="global.html#BULLET_TYPE">BULLET_TYPE</a></li><li><a href="global.html#ENEMY_TYPES">ENEMY_TYPES</a></li><li><a href="global.html#ERROR_SEVERITY">ERROR_SEVERITY</a></li><li><a href="global.html#LEVEL_LAYOUT_ID">LEVEL_LAYOUT_ID</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta3</a> on Mon Apr 20 2015 19:28:33 GMT+0100 (GMT Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
