@@ -52,6 +52,7 @@ class Server {
   }
 }
 
+const port = () => Number(process.argv.slice(-1)[0]);
 const server = new Server('MobileGameDev Server');
-server.setListeningPort(3002);
+server.setListeningPort(port());
 server.start();
