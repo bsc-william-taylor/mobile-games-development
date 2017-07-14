@@ -35,12 +35,18 @@ class Server {
     app.use('/level/', levelApi);
     app.use('/score/', scoreApi);
     app.use('/news/', newsApi);
-    app.get('/', (request, response) => {
-      let message = nm + ' online for ';
-      message += this.to_minutes(Date.now() - startTime);
-      message += " mins";
+    app.get('/', (req, res) => {
+      const html = `
+      <html>
+        <body>
+          <h1>Server online</h1>
+        </body>
+      </html>
+      `;
 
-      response.json({ "Time Active": message });
+      res.setHeader('Content-Type', 'text/html');
+      res.write(html);
+      res.end();
     });
 
     const server = app.listen(this.portNumber, () => {
